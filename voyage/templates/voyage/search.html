@@ -1,0 +1,29 @@
+{% extends 'voyage/base.html' %}
+
+{% block content %}
+    {% include 'voyage/search_form.html' %}
+    {% if voyages|length_is:"0" %}
+
+            <div class="text-center"> Nous avons pas pu trouver le voyage  </div>
+    {% else %}
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            {% for voyage in voyages %}
+                <div class="col">
+                    <div class="card h-100">
+                        <a  href="{% url 'detail_voyage' voyage_id=voyage.id %}"><img src="{{voyage.photo}}" class="card-img-top" alt="{{ voyage.nom}}"></a>
+                    <div class="card-body">
+                        <h5 class="card-title">{{voyage.nom}}</h5>
+                        <p class="card-text">Prix :{{voyage.prix}} FCFA </p>
+                        <p class="card-text">Pays :{{voyage.destination}}</p>
+                    </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+         
+    {% endif%}
+
+  
+
+
+{% endblock %}

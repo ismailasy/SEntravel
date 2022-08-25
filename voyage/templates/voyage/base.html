@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Agence- SenTravel</title>
+        {% load static %}
+
+        <link rel="icon" type="image/x-icon" href="{% static 'voyage/assets/img/favicon.ico' %}" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{% static 'voyage/css/styles.css' %}" rel="stylesheet" />
+    </head>
+    <body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand js-scroll-trigger" href="#page-top"><h6>SenTravel</h6></a>
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars ml-1"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav text-uppercase ml-auto">
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#">Accueil</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'listing' %}">Voyages</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">Reservations</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#team">Destination</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'search' %}">Recherche</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Masthead-->
+        <header class="masthead">
+            <div class="container">
+                <div class="masthead-heading text-uppercase">Bienvenue a SenTravel !!</div>
+                <div class="masthead-subheading">Reservez vos Voyages</div>
+                <!--<a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">Tell Me More</a>-->
+            </div>
+        </header>
+      <!-- Section du milieu qui est appellé a changé en fonction du bouton cliqué par le visiteur du site-->
+       <!--<section class="page-section" id="partie_centrale"> -->
+            
+            <div class="container">
+                <div class="row">
+                    <div class="box">
+                            {% block content %} {% endblock %}
+                    </div>
+                </div>
+            </div>
+
+            
+       <!-- </section> -->
+         <!-- video de la demo de sentravel -->
+        <section class="page-section" id="demo">
+            
+            <div class="embed-responsive embed-responsive-16by9">
+                <iframe class="embed-responsive-item" src="{% static 'voyage/assets/demo.mp4' %}" options=""></iframe>
+              </div>
+        </section>
+         
+        <!-- l'equipe de developpement de sentravel-->
+
+        <section class="page-section" id="dev_by">
+
+            <img class=img-responsive src="{% static 'voyage/assets/devby.png' %}"/>
+            
+        </section>
+
+        
+
+        <footer class="footer py-4">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-4 text-lg-left">Copyright © Master 1 SIR 2020 by Ismaila SY</div>
+                    <div class="col-lg-4 my-3 my-lg-0">
+                        <a class="btn btn-dark btn-social mx-2" href="https://twitter.com/Syismaila1"><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-dark btn-social mx-2" href="https://facebook.com/BaboyeSY"><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                    <div class="col-lg-4 text-lg-right">
+                        <a class="mr-3" href="#!">Copyright M1SIR</a>
+                        <a href="#!">Terms of Use</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+     <!-- Bootstrap core JS-->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
+     <!-- Third party plugin JS-->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+     <!-- Contact form JS-->
+     <script src="{% static 'voyage/assets/mail/jqBootstrapValidation.js' %}"></script>
+     <script src="{% static 'voyage/assets/mail/contact_me.js' %}"></script>
+     <!-- Core theme JS-->
+     <script src="{% static 'voyage/js/scripts.js' %}"></script>
+ </body>
+</html>

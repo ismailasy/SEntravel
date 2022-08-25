@@ -1,0 +1,55 @@
+{% extends 'voyage/base.html' %}
+
+{% block content %}
+    <div class="container">
+        <div class="card h-100">
+            <img src="{{thumbnail}}" class="card-img-top" alt="{{ voyage.nom}}">
+            <div class="card-body">
+                <h5 class="card-title">{{voyage_nom}}</h5>
+                <h3 class="card-title">Excurtions proposés durant le voyage</h3>
+                <p class="card-text">{{excurtions_nom }}</p>
+                <p class="card-text">Prix :{{voyage_prix}} FCFA </p>
+                <p class="card-text">Duree voyage :{{voyage_duree}}  jours </p>
+                <p class="card-text">Pays :{{voyage_pays}}</p>
+            </div>
+        </div>
+         
+        <h2 class="text-center voyage_nom">Réserver pour {{ voyage_nom}}</h2>
+        <hr>
+        <form action="{% url 'detail_voyage' voyage_id=voyage_id %}" method="POST">
+            {% csrf_token %}
+           
+            <div class="form-group  {% if form.prenom.errors %}has-warning has-feedback{% endif %}">
+                <label for="{{ form.prenom.id_for_label }}" class="control-label">Prenom</label>
+                {{ form.prenom }}
+            </div>
+            <div class="form-group  {% if form.nom.errors %}has-warning has-feedback{% endif %}">
+                <label for="{{ form.nom.id_for_label }}" class="control-label">Nom</label>
+                {{ form.nom }}
+            </div>
+            <div class="form-group  {% if form.email.errors %}has-warning has-feedback{% endif %}">
+                <label for="{{ form.email.id_for_label }}" class="control-label">Email</label>
+                {{ form.email }}
+            </div>
+            <div class="form-group  {% if form.tel.errors %}has-warning has-feedback{% endif %}">
+                <label for="{{ form.tel.id_for_label }}" class="control-label">Telephone</label>
+                {{ form.tel }}
+            </div>
+              <!-- <input type="hidden" class="hidden" value="" name="voyage_id"> -->
+
+            <button type="submit" class="btn btn-success">Réserver</button>
+        </form>
+        {% if errors %}
+              <div>
+                {% for key, error in errors %}
+                {% autoescape off %}
+                  {{ error }}
+                {% endautoescape %}
+                {% endfor %}
+              </div>
+
+        {% endif %}
+ 
+    </div>
+    
+{% endblock %}
