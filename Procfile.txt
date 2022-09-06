@@ -1,0 +1,1 @@
+web : gunicorn sentravel.wsgi --log-file -
